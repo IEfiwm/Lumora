@@ -11,19 +11,15 @@ export default defineConfig({
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
-    // Static SPA output for FTP / shared hosting (HTML, CSS, JS)
+    // Static SPA output for FTP / shared hosting (HTML, CSS, JS).
+    // Only the client shell is prerendered to index.html; all routes render
+    // client-side, with the .htaccess fallback rewriting 404s to index.html.
     spa: {
       enabled: true,
       prerender: {
         outputPath: "/index.html",
-        crawlLinks: true,
-        retryCount: 3,
+        crawlLinks: false,
       },
-    },
-    prerender: {
-      enabled: true,
-      crawlLinks: true,
-      autoStaticPathsDiscovery: true,
     },
   },
 });
