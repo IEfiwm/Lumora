@@ -1,0 +1,192 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* IRANYekan — local font family */
+@font-face {
+  font-family: "IRANYekanX";
+  src: url("/fonts/IRANYEKANTHIN.TTF") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IRANYekanX";
+  src: url("/fonts/IRANYEKANLIGHT.TTF") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IRANYekanX";
+  src: url("/fonts/IRANYEKANREGULAR.TTF") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IRANYekanX";
+  src: url("/fonts/IRANYEKANMEDIUM.TTF") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IRANYekanX";
+  src: url("/fonts/IRANYEKANBOLD.TTF") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IRANYekanX";
+  src: url("/fonts/IRANYEKANEXTRABOLD.TTF") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IRANYekanX";
+  src: url("/fonts/IRANYEKANBLACK.TTF") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IRANYekanX";
+  src: url("/fonts/IRANYEKANEXTRABLACK.TTF") format("truetype");
+  font-weight: 950;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme inline {
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-2xl: 36px;
+
+  --font-sans: "IRANYekanX", "Vazirmatn", system-ui, sans-serif;
+  --font-display: "IRANYekanX", "Vazirmatn", system-ui, sans-serif;
+  --font-data: "Inter", system-ui, sans-serif;
+
+  --spacing-gutter: 24px;
+  --spacing-container-padding: 32px;
+  --spacing-card-gap: 20px;
+  --spacing-section-margin: 40px;
+
+  /* === Emerald Prestige — luxe dark === */
+  --color-background: #07140e;
+  --color-foreground: #f3ecd5;
+
+  --color-surface: #07140e;
+  --color-surface-1: #0b1f16;        /* cards */
+  --color-surface-2: #102a1e;        /* raised */
+  --color-surface-3: #163627;        /* highest */
+  --color-on-surface: #f3ecd5;
+  --color-on-surface-variant: #a9bcb2;
+
+  --color-primary: #c9a84c;           /* gold */
+  --color-on-primary: #07140e;
+  --color-primary-soft: #1c3a2a;      /* gold tint surface */
+  --color-primary-glow: #e6c97a;
+
+  --color-emerald: #0d7a5f;
+  --color-emerald-deep: #064e3b;
+  --color-emerald-glow: #34d399;
+
+  --color-accent: #c9a84c;
+  --color-accent-foreground: #07140e;
+
+  --color-success: #34d399;
+  --color-warning: #f5c451;
+  --color-error: #ef4d4d;
+  --color-on-error: #ffffff;
+  --color-error-container: #3a1212;
+
+  --color-border: rgba(201, 168, 76, 0.14);
+  --color-border-strong: rgba(201, 168, 76, 0.28);
+  --color-input: rgba(201, 168, 76, 0.18);
+  --color-ring: #c9a84c;
+
+  --color-card: #0b1f16;
+  --color-card-foreground: #f3ecd5;
+  --color-popover: #0b1f16;
+  --color-popover-foreground: #f3ecd5;
+  --color-muted: #102a1e;
+  --color-muted-foreground: #a9bcb2;
+  --color-destructive: #ef4d4d;
+  --color-destructive-foreground: #ffffff;
+
+  /* gradients */
+  --gradient-gold: linear-gradient(135deg, #c9a84c 0%, #e6c97a 60%, #c9a84c 100%);
+  --gradient-emerald: linear-gradient(135deg, #064e3b 0%, #0d7a5f 100%);
+  --gradient-glow: radial-gradient(circle at 30% 20%, rgba(201,168,76,0.18), transparent 60%);
+
+  --shadow-luxe: 0 30px 80px -40px rgba(201, 168, 76, 0.35);
+  --shadow-emerald: 0 30px 80px -40px rgba(13, 122, 95, 0.55);
+}
+
+:root {
+  --radius: 1.25rem;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    font-family: var(--font-sans);
+    background: var(--color-background);
+    color: var(--color-foreground);
+  }
+  body {
+    background:
+      radial-gradient(1100px 600px at 90% -10%, rgba(13, 122, 95, 0.22), transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, rgba(201, 168, 76, 0.12), transparent 60%),
+      var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "ss02";
+    -webkit-font-smoothing: antialiased;
+  }
+  .font-display { font-family: var(--font-display); letter-spacing: -0.01em; }
+  .font-data { font-family: var(--font-data); font-feature-settings: "tnum"; }
+  .material-symbols-outlined {
+    font-family: "Material Symbols Outlined";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    display: inline-block;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  }
+}
+
+@utility glass {
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015));
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--color-border);
+}
+@utility glass-strong {
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--color-border-strong);
+}
+@utility gold-text {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+@utility hairline {
+  background-image: linear-gradient(90deg, transparent, var(--color-border-strong), transparent);
+  height: 1px;
+}
