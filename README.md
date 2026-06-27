@@ -49,16 +49,13 @@ npm run dev
 پس از `npm run build`، فایل‌های استاتیک در مسیر زیر تولید می‌شوند:
 
 ```
-.output/public/
+dist/client/
 ├── index.html          # صفحه اصلی (SPA shell)
 ├── assets/             # فایل‌های CSS و JS
-├── dashboard/          # صفحات prerender شده
-├── insights/
-├── settings/
 └── .htaccess           # قوانین Apache برای مسیریابی SPA
 ```
 
-این پوشه شامل تمام فایل‌های **HTML، CSS و JS** است و مستقیماً روی هاست اشتراکی قابل آپلود است.
+این پوشه شامل تمام فایل‌های **HTML، CSS و JS** است و مستقیماً روی هاست اشتراکی قابل آپلود است. همه مسیرها (`/dashboard`، `/insights`، `/settings`) به‌صورت سمت‌کلاینت رندر می‌شوند و `.htaccess` درخواست‌ها را به `index.html` هدایت می‌کند.
 
 ---
 

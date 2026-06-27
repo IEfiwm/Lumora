@@ -7,9 +7,12 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
+  // Disable the Nitro/Cloudflare deploy plugin. We ship a pure static SPA over
+  // FTP, and Nitro redirects the SSR build away from `dist/server`, which breaks
+  // the SPA shell prerender (its preview server expects `dist/server/server.js`).
+  nitro: false,
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
-    // nitro/vite builds from this
     server: { entry: "server" },
     // Static SPA output for FTP / shared hosting (HTML, CSS, JS).
     // Only the client shell is prerendered to index.html; all routes render
